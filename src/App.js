@@ -14,9 +14,9 @@ function App() {
       <div className="last-update">
         <p>Last updated on {dayjs(data?.dt_txt).format("dddd, h:mm A")}</p>
       </div>
-      {isLoading ? <h1 style={{ color: "white" }} >Loading</h1> : null}
-      {isError ? <h1 style={{ color: "red" }} >Something Broke</h1> : null}
-      {data ?
+      {isLoading ? <h3>Loading...</h3> : null}
+      {isError ? <h3 className="error-msg">Please enter a city.</h3> : null}
+      {data ? (
         <>
           <Weather
             icon={data.icon}
@@ -29,9 +29,7 @@ function App() {
             feels_like={data.feels_like}
           />
         </>
-        : null
-      }
-
+      ) : null}
     </div>
   );
 }
